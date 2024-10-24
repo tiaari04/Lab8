@@ -49,4 +49,19 @@ public class CustomListTest {
         list.addCity(testcity2);
         assertTrue(list.hasCity(testcity2));
     }
+
+    @Test
+    public void testDelete() {
+        list  = MockCityList();
+        City testcity1 = new City("Regina", "Saskatchewan");
+        City testcity2 = new City("Calgary", "Alberta");
+        list.add(testcity1);
+        list.add(testcity2);
+
+        assertEquals(2, testCityList.getCities().size());
+        list.deleteCity(testcity1);
+        assertEquals(1, testCityList.getCities().size());
+        assertTrue(testCityList.getCities().contains(testcity2));
+        assertFalse(testCityList.getCities().contains(testcity1));
+    }
 }
